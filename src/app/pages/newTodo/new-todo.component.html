@@ -1,0 +1,22 @@
+<!-- Header -->
+<div class="page-header">
+
+  <!-- Title -->
+  <div class="fw-bold">New todo</div>
+  <!-- Delete -->
+
+</div>
+<form (ngSubmit)="addNewTodo()">
+  <label for="title" class="form-label">Title: </label>
+  <input id="title" type="text" class="form-control" [formControl]="title" placeholder="Title">
+  <label for="priority" class="form-label mt-2">Priority: </label>
+
+  <select class="form-select" id="priority" aria-label="Default select example" [(ngModel)]="selectedValue" name="item">
+    <option *ngFor="let item of priorities" [value]="item">{{ item }}</option>
+  </select>
+  <input type="submit" class="btn btn-primary ms-auto mt-2 w-100">
+
+</form>
+<p *ngIf="todoAdded" class="d-flex justify-content-center mt-4">Todo added successfully</p>
+
+

@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AppService } from '../app.service';
-import { Todo } from '../shared/interfaces/todo';
+import { AppService } from '../../app.service';
+import { Todo } from '../../shared/interfaces/todo';
 
 @Component({
-  selector: 'app-todos',
+  selector: 'app-todoList',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss'],
 })
@@ -13,7 +13,7 @@ export class TodosComponent implements OnInit, OnDestroy {
   /** Subscription for observables to unsubscribe after component destroy. */
   private readonly subscription = new Subscription();
 
-  /** List of todos. */
+  /** List of todoList. */
   todos: Todo[] = [];
 
   constructor(private appService: AppService) {

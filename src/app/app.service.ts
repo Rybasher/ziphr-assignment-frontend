@@ -8,7 +8,7 @@ import { Todo } from './shared/interfaces/todo';
 })
 export class AppService {
 
-  /** Key for todos in localStorage. */
+  /** Key for todoList in localStorage. */
   private readonly todosKey = 'todos';
 
   /**
@@ -21,11 +21,11 @@ export class AppService {
   constructor() {
     console.debug('AppService initiated.');
     /** Load initial value. */
-    console.debug('Loading todos from localStorage.');
+    console.debug('Loading todoList from localStorage.');
     let storedTodos: string | null = localStorage.getItem(this.todosKey);
     /** Checking if we should save fake data. */
     if (!storedTodos) {
-      console.debug('Loading fake todos since localStorage is empty.');
+      console.debug('Loading fake todoList since localStorage is empty.');
       storedTodos = JSON.stringify(FakeTodos);
     }
     /** Emit initial value to the subject. */
@@ -33,7 +33,7 @@ export class AppService {
     /** Watch to save new changes to localStorage. */
     this.todos.subscribe({
       next: (value: Todo[]): void => {
-        console.debug('Saving todos to localStorage.');
+        console.debug('Saving todoList to localStorage.');
         localStorage.setItem(this.todosKey, JSON.stringify(value));
       },
     });

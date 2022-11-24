@@ -1,7 +1,7 @@
 import { TodoPriority } from '../enums/todo-priority';
 import { Todo } from '../interfaces/todo';
 
-/** List of fake todos for testing. */
+/** List of fake todoList for testing. */
 export const FakeTodos: Todo[] = [
   {
     title: 'Setup Foo module for testing',
